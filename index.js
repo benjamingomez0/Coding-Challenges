@@ -1,5 +1,4 @@
 //advent of code day 1
-console.log('chello, werld')
 const massList =[
                     81893,
                     122450,
@@ -102,9 +101,26 @@ const massList =[
                     81712,
                     132728]
 
+//day 1 part 1 solution
 sum=0;
+
+f = (mass)=> Math.max(Math.floor(mass/3)-2,0)
+
+g= (mass)=> {
+    s=0
+    
+    while (mass>0)
+    {
+        mass=f(mass)
+        s+= mass
+    }
+    return s
+}
+console.log(g(14))
+// console.log(sum);
+
 for(let i=0;i<massList.length;i++)
 {
-   sum+= Math.floor(massList[i]/3)-2
+   sum+= g(massList[i])
 }
-console.log(sum);
+console.log(sum)
